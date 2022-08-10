@@ -3,7 +3,7 @@
 目前大概率不全面。  
 
 ## 列表
-当前总数: 2 
+当前总数: 2  
 格式: `{SubjectKeyIdentifier} - {O} - {CN}`
 ```
 7D:8A:A7:A0:8E:9E:8A:7A:2A:4C:85:81:7D:A0:B7:CB:92:64:04:91 - sslTrus - sslTrus (RSA) DV CA

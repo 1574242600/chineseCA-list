@@ -3,7 +3,7 @@
 目前大概率不全面。  
 
 ## 列表
-当前总数: {{total}} 
+当前总数: {{total}}  
 格式: `{SubjectKeyIdentifier} - {O} - {CN}`
 ```
 {{list}}
