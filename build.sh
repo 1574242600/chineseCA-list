@@ -13,17 +13,15 @@ main() {
 
     sed -e "s/{{total}}/$total/g" $README_TEMPLATE_PATH > $README_PATH
     
-    local tmp
-    tmp=$(echo -n "$ca_cert_list" | sed -e 's/\\/\\\\/g');
+    local tmp="$ca_cert_list"
+    tmp=$(echo -n "$tmp" | sed -e 's/\\/\\\\/g');
     tmp=$(echo -n "$tmp" | sed -z -e 's/\n/\\n/g');
 
     sed -i -e "s/{{list}}/$tmp/g" $README_PATH
 
-    
-    echo "$tmp"
     echo "Total: $total"
     echo "List:"
-    #echo "$ca_cert_list"
+    echo "$ca_cert_list"
 }
 
 append_cert_info_by_cert() {
