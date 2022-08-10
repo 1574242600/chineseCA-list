@@ -4,7 +4,7 @@ on:
   push:
     branches: [ "main" ]
     paths: 
-      - 'certs'
+      - 'certs/*'
       - 'README_TEMPLATE.md'
 
 jobs:
