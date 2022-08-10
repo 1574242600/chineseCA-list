@@ -9,13 +9,21 @@ main() {
         append_cert_info_by_cert $path
         let total++
     done
+    
 
     sed -e "s/{{total}}/$total/g" $README_TEMPLATE_PATH > $README_PATH
-    sed -i -e "s/{{list}}/$(echo -n "$ca_cert_list" | sed -z -e 's/\n/\\n/g')/g" $README_PATH
     
+    local tmp
+    tmp=$(echo -n "$ca_cert_list" | sed -e 's/\\/\\\\/g');
+    tmp=$(echo -n "$tmp" | sed -z -e 's/\n/\\n/g');
+
+    sed -i -e "s/{{list}}/$tmp/g" $README_PATH
+
+    
+    echo "$tmp"
     echo "Total: $total"
     echo "List:"
-    echo "$ca_cert_list"
+    #echo "$ca_cert_list"
 }
 
 append_cert_info_by_cert() {
@@ -30,7 +38,7 @@ append_cert_info_by_cert() {
     if [[ -z "$ca_cert_list" ]]; then
         ca_cert_list="$cert_info"
     else
-        ca_cert_list="$ca_cert_list\n$cert_info"
+        ca_cert_list="$ca_cert_list"$'\n'"$cert_info"
     fi
 }
 
