@@ -5,6 +5,7 @@ on:
     branches: [ "main" ]
     paths: 
       - 'certs/*'
+      - 'build.sh'
       - 'README_TEMPLATE.md'
 
 jobs:
