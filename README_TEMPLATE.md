@@ -10,5 +10,5 @@
 ```
 
 ## 补充
-如果要补充，请把证书重命名为 `{SubjectKeyIdentifier}.pem` 后放入 `certs` 目录然后提交 PR。  
+欢迎补充，请把证书重命名为 `{SubjectKeyIdentifier}.pem` 后放入 `certs` 目录然后提交 PR。  
 当然也可以提 issue。
