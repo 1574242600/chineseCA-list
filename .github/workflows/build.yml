@@ -1,0 +1,30 @@
+name: Build
+
+on:
+  push:
+    branches: [ "main" ]
+    paths: 
+      - 'certs'
+      - 'README_TEMPLATE.md'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3 
+      - name: Generate README.md
+        run: |
+          chmod a+x ./build.sh
+          ./build.sh
+      - name: Commit files
+        run: |
+          git config user.name "NwormBot"
+          git config user.email "110966633+1574242600-bot@users.noreply.github.com"
+          git add . 
+          git commit -m "CI( build ): Github Actions `date +"%Y-%m-%d %H:%M"`" -n
+      - name: Push
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
+          directory: ./
